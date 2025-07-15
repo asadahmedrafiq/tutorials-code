@@ -1,10 +1,10 @@
 /**
  * # p2p Example
  *
- * This is the example of pointer to pointer assignment. Please check rule `p2passignspec`.
+ * This is the example of value to pointer assignment. Please check rule `v2passignspec`.
  * Run using:
  *
- * certoraRun ERC20.sol: --verify ERC20:ERC20Fixed.spec --solc solc8.0
+ * certoraRun /home/asad/certora/tutorials-code/memorytests/p2p.sol --verify p2p:/home/asad/certora/tutorials-code/memorytests/p2pspec.spec
  *
  * There should be no errors.
  */
@@ -13,31 +13,28 @@ methods
 {
     // When a function is not using the environment (e.g., `msg.sender`), it can be
     // declared as `envfree`
-    function assign2(uint8[5], uint8, uint8, uint8[5]) external returns (uint8[5] memory) envfree;
+    function assign1(uint8[5], uint8, uint8) external returns (uint8[5] memory) envfree;
 }
 
 
-/// @title Assignment must change the data at specified index in destination array 
-rule p2passignspec() {
+/// @title Assignment must change the data at specified index in destination array with value
+rule v2passignspec() {
 
 
     uint8[5] dest_array;
     uint8[5] ret;
     
-    uint8[5] source_array;
+    uint8 value;
     uint8 i;
-    uint8 j;
 
-    ret = assign2(dest_array,i, j, source_array);
+    ret = assign1(dest_array,i ,value);
     require i < 5;
-    require j != i;
-    require j<5;
-
+    
    
 /**@title return array contains the content of the source array
 * 
 */
-    assert ret[i] == source_array[j];
+    assert ret[i] == value;
 
 /**@title return array contains the content of the destination array
 * 

@@ -11,16 +11,16 @@ pragma solidity ^0.8.0;
  * The function does assignment operation and returns one of the memory array for the purpose of validating the assignment behavior.
  *
  */
-contract p2p {
+contract v2p {
    
     constructor() {
     }
 
- function assign2(uint8[5] memory x, uint8 i, uint8 j, uint8[5] memory y) 
+ function assign1(uint8[5] memory x, uint8 i, uint8 y) 
     public 
     returns (uint8[5] memory)  
     {
-      x[i] = y[j];
+      x[i] = y;
       return x;
     }
 
