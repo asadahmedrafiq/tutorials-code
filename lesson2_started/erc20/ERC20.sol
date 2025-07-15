@@ -57,6 +57,34 @@ contract ERC20 is IERC20, IERC20Metadata {
         _;
     }
 
+    function aliasing1(uint8[5][5] memory x, uint8 i, uint8 j, uint8[5][5] memory y, uint8 k, uint8 l) public returns (uint8[5][5] memory) {
+        x[i] = y[j];
+        y[j][k] = l;
+        return x;
+    }
+
+    function aliasing3(uint8[5][5][5] memory x, uint8 i, uint8 j, uint8[5][5][5] memory y, uint8 k, uint8 l, uint8[5][5][5] memory z, uint8 m, uint8 n, uint8 p) public returns (uint8[5][5][5] memory) {
+        x[i] = y[j];
+        y[j][k] = z[l][m];
+        z[l][m][n] = p;
+        return x;
+    }
+
+    function simple1(uint8[5] memory x, uint8 i, uint8 y) public returns (uint8[5] memory) {
+        x[i] = y;
+        return (x);
+    }
+
+    function simple2(uint8[] memory x, uint8 i, uint8 y) public returns (uint8[] memory) {
+        x[i] = y;
+        return (x);
+    }
+
+    function assign2(uint8[5][5] memory x, uint8 i, uint8 j, uint8[5][5] memory y) public returns (uint8[5][5] memory) {
+      x[i] = y[j];
+      return x;
+    }
+
     /**
      * @dev Returns the name of the token.
      */
