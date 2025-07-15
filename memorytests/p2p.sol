@@ -16,7 +16,10 @@ contract p2p {
     constructor() {
     }
 
- function assign2(uint8[5] memory x, uint8 i, uint8 j, uint8[5] memory y) public returns (uint8[5] memory)  {
+ function assign2(uint8[5] memory x, uint8 i, uint8 j, uint8[5] memory y) 
+    public 
+    returns (uint8[5] memory)  
+    {
       x[i] = y[j];
       return x;
     }

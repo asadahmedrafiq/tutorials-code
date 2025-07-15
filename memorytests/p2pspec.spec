@@ -9,9 +9,11 @@
  * There should be no errors.
  */
  
-methods 
+methods
 {
-    function assign2(uint8[5], uint8, uint8, uint[5]) external returns (uint) envfree;
+    // When a function is not using the environment (e.g., `msg.sender`), it can be
+    // declared as `envfree`
+    function assign2(uint8[5], uint8, uint8, uint8[5]) external returns (uint8[5] memory) envfree;
 }
 
 
