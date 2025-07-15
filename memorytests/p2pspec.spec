@@ -4,7 +4,7 @@
  * This is the example of pointer to pointer assignment. Please check rule `p2passignspec`.
  * Run using:
  *
- * certoraRun ERC20.sol: --verify ERC20:ERC20Fixed.spec --solc solc8.0
+ * certoraRun /home/asad/certora/tutorials-code/memorytests/p2p.sol --verify p2p:/home/asad/certora/tutorials-code/memorytests/p2pspec.spec
  *
  * There should be no errors.
  */

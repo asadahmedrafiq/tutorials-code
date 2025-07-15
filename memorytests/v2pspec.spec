@@ -1,10 +1,10 @@
 /**
- * # p2p Example
+ * # v2p Example
  *
  * This is the example of value to pointer assignment. Please check rule `v2passignspec`.
  * Run using:
  *
- * certoraRun /home/asad/certora/tutorials-code/memorytests/p2p.sol --verify p2p:/home/asad/certora/tutorials-code/memorytests/p2pspec.spec
+ * certoraRun /home/asad/certora/tutorials-code/memorytests/v2p.sol --verify p2p:/home/asad/certora/tutorials-code/memorytests/v2pspec.spec
  *
  * There should be no errors.
  */
@@ -26,10 +26,12 @@ rule v2passignspec() {
     
     uint8 value;
     uint8 i;
+    uint8 j;
 
-    ret = assign1(dest_array,i ,value);
+    ret = assign1(dest_array, i, value);
     require i < 5;
-    
+    require i != j;
+    require j < 5;
    
 /**@title return array contains the content of the source array
 * 
