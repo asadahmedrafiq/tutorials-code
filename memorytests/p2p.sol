@@ -11,7 +11,7 @@ pragma solidity ^0.8.0;
  * The function does assignment operation and returns one of the memory array for the purpose of validating the assignment behavior.
  *
  */
-contract memorytest2 {
+contract p2p {
    
     constructor() {
     }
