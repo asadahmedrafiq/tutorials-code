@@ -28,7 +28,7 @@ rule p2passignspec() {
     uint8 i;
     uint8 j;
 
-    ret = assign2(e, dest_array,i, j, source_array);
+    ret = assign2(dest_array,i, j, source_array);
     require i < 5;
     require j != i;
     require j<5;
