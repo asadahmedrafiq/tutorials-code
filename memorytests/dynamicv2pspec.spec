@@ -28,7 +28,7 @@ rule p2passignspec() {
     uint8 i;
     uint8 j;
 
-    ret = assign2(dest_array,i, j, source_array);
+    ret = assign2(dest_array, i, j, source_array);
     require dest_array.length == source_array.length;
     require i < dest_array.length;
     require j != i;
