@@ -1,7 +1,7 @@
 /**
  * # p2p Example
  *
- * This is the example of pointer to pointer assignment. Please check rule `p2passignspec`.
+ * This is the example of pointer to pointer assignment. Please check rule `dp2passignspec`.
  * Run using:
  *
  * certoraRun /home/asad/certora/tutorials-code/memorytests/p2p.sol --verify p2p:/home/asad/certora/tutorials-code/memorytests/p2pspec.spec
@@ -18,7 +18,7 @@ methods
 
 
 /// @title Assignment must change the data at specified index in destination array 
-rule p2passignspec() {
+rule dp2passignspec() {
 
 
     uint8[] dest_array;
