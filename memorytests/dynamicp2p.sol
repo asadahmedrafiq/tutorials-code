@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Memory test for pointer-to-pointer copyingbehavior (/certora/tutorials-code/memorytests/dynamicv2p.sol)
+// Memory test for pointer-to-pointer copyingbehavior (/certora/tutorials-code/memorytests/p2p.sol)
 
 pragma solidity ^0.8.0;
 
@@ -11,17 +11,18 @@ pragma solidity ^0.8.0;
  * The function does assignment operation and returns one of the memory array for the purpose of validating the assignment behavior.
  *
  */
-contract dynamicv2p {
+contract p2p {
    
     constructor() {
     }
 
- function assign1(uint8[] memory x, uint8 i, uint8 y) 
+ function assign2(uint8[] memory x, uint8 i, uint8 j, uint8[] memory y) 
     public 
     returns (uint8[] memory)  
     {
-      x[i] = y;
+      x[i] = y[j];
       return x;
     }
 
    }
+
