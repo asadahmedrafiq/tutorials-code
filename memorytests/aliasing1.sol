@@ -5,11 +5,12 @@ pragma solidity ^0.8.0;
 
 
 /**
- * @dev Implementation of assignment behavior in multi-dimenstional memory arrays
+ * @dev Implementation of assignment behavior in multi-dimenstionalstatic  memory arrays
  *
- * This contract accepts two static two-dimensional memory arrays and indeces to perform assignment operation.
- * Furhter one of the array data/content is loaded. This then serves us to obse3rve the behavior of the memory assignment of such arrays.
- * The function does assignment operation and returns one of the memory array for the purpose of validating the assignment behavior.
+ * This contract accepts two static two-dimensional memory arrays and respective indeces to perform assignment operation.
+ * In first step, a memory pointer-to-pointer assignment is performed. In the second step, source memory array data is updated 
+ * at that specific pointer location with value.
+ * The destenation array is returned which should reflect changes made in the second step due to first step.
  *
  */
 contract aliasing1 {

@@ -13,7 +13,7 @@ methods
 {
     // When a function is not using the environment (e.g., `msg.sender`), it can be
     // declared as `envfree`
-    function assign1(uint8[], uint8, uint8) external returns (uint8[] memory) envfree;
+    function assign2(uint8[], uint8, uint8) external returns (uint8[] memory) envfree;
 }
 
 
@@ -26,13 +26,10 @@ rule dv2passignspec() {
     
     uint8 value;
     uint8 i;
-    uint8 j;
     
-    ret = assign1(dest_array, i, value);
+    ret = assign2(dest_array, i, value);
     require dest_array.length < 5;
      require i < dest_array.length;
-    require i != j;
-    require j < dest_array.length;
 
 /**@title return array contains the content of the source array
 * 
@@ -42,6 +39,6 @@ rule dv2passignspec() {
 /**@title return array contains the content of the destination array
 * 
 */
-    assert ret[j] == dest_array[j];
+    assert ret[i] == dest_array[i];
 }
 
