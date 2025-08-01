@@ -24,12 +24,12 @@ methods
     // declared as `envfree`
     function assign1(uint8[5], uint8, uint8) external returns (uint8[5] memory) envfree;
     function assign2(uint8[50], uint8, uint8) external returns (uint8[50] memory) envfree;
-    function assign3(uint8[5][5], uint8, uint8, uint8, uint8, uint8[5][5]) external returns (unit8[5][5] memory) envfree; 
-    function assign4(uint8[50][50], uint8, uint8, uint8, uint8, uint8[50][50]) external returns (unit8[50][50] memory) envfree; 
+    function assign3(uint8[5][5], uint8, uint8, uint8, uint8, uint8[5][5]) external returns (uint8[5][5] memory) envfree; 
+    function assign4(uint8[50][50], uint8, uint8, uint8, uint8, uint8[50][50]) external returns (uint8[50][50] memory) envfree; 
     function assign5(uint8[5][5][5], uint8, uint8, uint8, uint8, uint8, uint8, uint8, uint8[5][5][5], uint8[5][5][5] ) external returns (uint8[5][5][5] memory) envfree;
     function assign6(uint8[50][50][50], uint8, uint8, uint8, uint8, uint8, uint8, uint8, uint8[50][50][50], uint8[50][50][50] ) external returns (uint8[50][50][50] memory) envfree;
-    function assign7(uint8[], uint8 i, uint8 y) external returns (uint8[] memory) envfree;
-    function assign8(uint8[][], uint8 i, uint8 y) external returns (uint8[][] memory) envfree;
+    function assign7(uint8[], uint8, uint8) external returns (uint8[] memory) envfree;
+    function assign8(uint8[][], uint8, uint8, uint8, uint8, uint8[][]) external returns (uint8[][] memory) envfree;
 }
 
 
@@ -71,7 +71,7 @@ rule assign2spec() {
     uint8 i2;
     uint8 j2;
 
-    ret = assign2(dest_array2, i2, value2);
+    ret2 = assign2(dest_array2, i2, value2);
     require i2 < 50;
     require i2 != j2;
     require j2 < 50;
@@ -91,56 +91,61 @@ rule assign2spec() {
 rule assign3spec() {
 
 
-    uint8[5] dest_array3;
-    uint8[5] ret3;
+    uint8[5][5] dest_array3;
+    uint8[5][5] ret3;
     
-    uint8[5] source_array3;
+    uint8[5][5] source_array3;
     uint8 i3;
     uint8 j3;
+    uint8 k3;
+    uint8 value3;
 
-    ret = assign2(dest_array3, i3, j3, source_array3);
+    ret3 = assign3(dest_array3, i3, j3, k3, value3, source_array3);
     require i3 < 5;
-    require j3 != i3;
     require j3 < 5;
+    require j3 != i3;
+    require k3 < 5;
 
    
 /**@title return array contains the content of the source array
 * 
 */
-    assert ret3 [i3] == source_array3 [j3];
+    assert ret3 [i3][k3] == source_array3 [j3][k3];
 
 /**@title return array contains the content of the destination array
 * 
 */
-    assert ret3 [j3] == dest_array3 [j3];
+    assert ret3 [j3][k3] == dest_array3 [j3][k3];
 }
 
 /// @title Pointer to pointer assignment must change the data at specified index in 2D destination array after update are the corresponding index 
 rule assign4spec() {
 
 
-    uint8[5] dest_array4;
-    uint8[5] ret4;
+    uint8[50][50] dest_array4;
+    uint8[50][50] ret4;
     
-    uint8[5] source_array4;
+    uint8[50][50] source_array4;
     uint8 i4;
     uint8 j4;
+    uint8 k4;
+    uint8 value4;
 
-    ret4 = assign4(dest_array4,i4, j4, source_array4);
-    require i4 < 5;
+    ret4 = assign4(dest_array4,i4, j4, k4, value4, source_array4);
+    require i4 < 50;
     require j4 != i4;
-    require j4 < 5;
-
+    require j4 < 50;
+    require k4 < 50;
    
 /**@title return array contains the content of the source array
 * 
 */
-    assert ret4 [i4] == source_array4 [j4];
+    assert ret4 [i4][k4] == source_array4 [j4][k4];
 
 /**@title return array contains the content of the destination array
 * 
 */
-    assert ret4 [j4] == dest_array4 [j4];
+    assert ret4 [j4][k4] == dest_array4 [j4][k4];
 }
 
 
@@ -167,7 +172,7 @@ rule assign5spec() {
 
     uint8 value5;
 
-    ret = assign5(dest_array5,i5, j5, k5, l5, m5, n5, value5, transient_array5, source_array5);
+    ret5 = assign5(dest_array5,i5, j5, k5, l5, m5, n5, value5, transient_array5, source_array5);
     require i5 < 5;
     require j5 < 5;
     require k5 < 5;
@@ -217,7 +222,7 @@ rule assign6spec() {
 
     uint8 value6;
 
-    ret = assign6(dest_array6,i6, j6, k6, l6, m6, n6, value, transient_array6, source_array6);
+    ret6 = assign6(dest_array6,i6, j6, k6, l6, m6, n6, value6, transient_array6, source_array6);
     require i6 < 5;
     require j6 < 5;
     require k6 < 5;
@@ -273,23 +278,25 @@ rule assign7spec() {
 rule assign8spec() {
 
 
-    uint8[] dest_array8;
-    uint8[] ret8;
+    uint8[][] dest_array8;
+    uint8[][] source_array8;
+    uint8[][] ret8;
     
     uint8 value8;
     uint8 i8;
     uint8 j8;
-    
-    ret8 = assign8(dest_array, i8, value);
+    uint8 k8;
+
+    ret8 = assign8(dest_array8, i8, j8, k8, value8, source_array8);
      require i8 != j8;
 
 /**@title return array contains the content of the source array
 * 
 */
-    assert ret8[i8] == value8;
+    assert ret8[i8][k8] == value8;
 
 /**@title return array contains the content of the destination array
 * 
 */
-    assert ret8[i8] == dest_array8[j8];
+    assert ret8[i8][k8] == dest_array8[j8][k8];
 }
