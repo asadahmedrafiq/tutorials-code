@@ -18,7 +18,7 @@ contract tests {
 
  function assign1(uint8[5] memory x1, uint8 i1, uint8 y1) 
     public 
-    returns (uint8[50] memory)  
+    returns (uint8[5] memory)  
     {
       x1[i1] = y1;
       return x1;
@@ -69,16 +69,16 @@ contract tests {
     public 
     returns (uint8[5][5][5] memory)  
     {
-      x5[i5] = y[j5];
-      y[j5][k5] = z5[l5][m5];
-      z[l5][m5][n5]= value5;
+      x5[i5] = y5[j5];
+      y5[j5][k5] = z5[l5][m5];
+      z5[l5][m5][n5]= value5;
       return x5;
     }
 
 // assign6 is same as assign5.
 // Only difference is the size of the given matrices to guage the effect on the verification effort in Certora.
 
- function assign6(uint8[50][50][50] memory x6, uint8 i6, uint8 j6, uint8 k6, uint8 l6, uint8 m6, uint8 n6, uint8 value6, uint8[50][50][50] memory y6, uint8[5][5][5] memory z6) 
+ function assign6(uint8[50][50][50] memory x6, uint8 i6, uint8 j6, uint8 k6, uint8 l6, uint8 m6, uint8 n6, uint8 value6, uint8[50][50][50] memory y6, uint8[50][50][50] memory z6) 
     public 
     returns (uint8[50][50][50] memory)  
     {
@@ -103,7 +103,7 @@ contract tests {
  // assign8 is same as assign7.
  // Only difference is the dimensions of the memory arrays. 
   
- function assign8(uint8[][] memory x8, uint8 i8, uint8 j8, uint8[][] y8) 
+ function assign8(uint8[][] memory x8, uint8 i8, uint8 j8, uint8 k8, uint8 value8, uint8[][] memory y8) 
     public 
     returns (uint8[][] memory)  
     {
