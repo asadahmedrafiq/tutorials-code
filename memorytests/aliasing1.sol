@@ -18,9 +18,9 @@ contract aliasing1 {
     constructor() {
     }
 
- function assign3(uint8[5][5] memory x, uint8 i, uint8 j, uint8 k, uint8 value, uint8[5][5] memory y) 
+ function assign3(uint8[50][50] memory x, uint8 i, uint8 j, uint8 k, uint8 value, uint8[50][50] memory y) 
     public 
-    returns (uint8[5][5] memory)  
+    returns (uint8[50][50] memory)  
     {
       x[i] = y[j];
       y[j][k] = value;

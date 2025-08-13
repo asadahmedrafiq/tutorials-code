@@ -4,8 +4,8 @@
  * This is the example of aliasing assignment involving three-dimensional arrays. Please check rule `daliasing2assignspec`.
  * Run using:
  *
- * certoraRun /home/asad/certora/tutorials-code/memorytests/aliasing2.sol --verify p2p:/home/asad/certora/tutorials-code/memorytests/aliasing2pec.spec
- *
+ *certoraRun /home/asad/certora/tutorials-code/memorytests/daliasing2.sol --verify daliasing2:/home/asad/certora/tutorials-code/memorytests/daliasing2spec.spec
+ 
  * There should be no errors.
  */
  
@@ -34,14 +34,23 @@ rule daliasing1assignspec() {
     uint8 n;
 
     uint8 value;
+    require dest_array.length > 0;
+    require dest_array.length < 2;
 
-    ret = assign4(dest_array, i, j, k, l, m, n, value, transient_array, source_array);
+    require transient_array.length > 0;
+    require transient_array.length < 2;
+
+    require source_array.length > 0;
+    require source_array.length < 2;
+
     require i < dest_array.length;
     require j < dest_array.length;
     require k < transient_array.length;
     require l < transient_array.length;
     require m < source_array.length;
     require n < source_array.length;
+        ret = assign4(dest_array, i, j, k, l, m, n, value, transient_array, source_array);
+
    
 /**@title return array contains the content of the source array
 * 

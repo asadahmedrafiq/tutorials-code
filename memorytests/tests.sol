@@ -28,14 +28,32 @@ contract tests {
 // Only difference is size of the fixed-sized array.
 // assign2 is designed to assess the affect of size of the array in relation to verification effort in Certora
 
-    function assign2(uint8[50] memory x2, uint8 i2, uint8 y2) 
+    function assign2(uint8[20] memory x2, uint8 i2, uint8 y2) 
     public 
-    returns (uint8[50] memory)  
+    returns (uint8[20] memory)  
     {
       x2[i2] = y2;
       return x2;
     }
 
+function assign21(uint8[5]memory x31, uint8 i31, uint8 j31, uint8 value31, uint8[5] memory y31) 
+    public 
+    returns (uint8[5] memory)  
+    {
+      x31[i31] = y31[j31];
+      y31[j31]= value31;
+      return x31;
+    }
+
+    function assign22(uint8[20]memory x32, uint8 i32, uint8 j32, uint8 value32, uint8[20] memory y32) 
+    public 
+    returns (uint8[20] memory)  
+    {
+      x32[i32] = y32[j32];
+      y32[j32]= value32;
+      return x32;
+    }
+    
 // assign3 is an implementation of aliasing using two-dimensional fixed sized array.
 // Only difference is dimension of the fixed-sized arrays.
 // assign3 accepts two dimensional fixed sized arrays , their respective indices and value.
@@ -53,9 +71,9 @@ contract tests {
 // assign4 function is similar to assign3.
 // Only difference is the size of two-dimanesional fixed sized arrays.
 
-    function assign4(uint8[50][50] memory x4, uint8 i4, uint8 j4, uint8 k4, uint8 value4, uint8[50][50] memory y4) 
+    function assign4(uint8[20][20] memory x4, uint8 i4, uint8 j4, uint8 k4, uint8 value4, uint8[20][20] memory y4) 
     public 
-    returns (uint8[50][50] memory)  
+    returns (uint8[20][20] memory)  
     {
       x4[i4] = y4[j4];
       y4[j4][k4] = value4;

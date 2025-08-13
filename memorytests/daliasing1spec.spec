@@ -4,7 +4,7 @@
  * This is the example of pointer to pointer assignment. Please check rule `daliasing1assignspec`.
  * Run using:
  *
- * certoraRun /home/asad/certora/tutorials-code/memorytests/aliasing1.sol --verify p2p:/home/asad/certora/tutorials-code/memorytests/aliasing1pec.spec
+ * certoraRun /home/asad/certora/tutorials-code/memorytests/aliasing1.sol --verify aliasing1:/home/asad/certora/tutorials-code/memorytests/daliasing1spec.spec
  *
  * There should be no errors.
  */

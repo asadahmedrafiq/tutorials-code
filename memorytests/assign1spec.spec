@@ -14,7 +14,7 @@ methods
     // When a function is not using the environment (e.g., `msg.sender`), it can be
     // declared as `envfree`
     function assign1(uint8[5], uint8, uint8) external returns (uint8[5] memory) envfree;
-}
+  }
 
 
 /// @title Assignment must change the data at specified index in destination array with value
@@ -30,7 +30,7 @@ rule v2passignspec() {
 
     ret = assign1(dest_array, i, value);
     require i < 5;
-    require i != j;
+require i != j;
     require j < 5;
    
 /**@title return array contains the content of the source array
@@ -41,6 +41,6 @@ rule v2passignspec() {
 /**@title return array contains the content of the destination array
 * 
 */
-    assert ret[j] == dest_array[j];
-}
+assert ret[j] == dest_array[j];
 
+}

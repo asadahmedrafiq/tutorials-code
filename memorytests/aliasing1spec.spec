@@ -13,7 +13,7 @@ methods
 {
     // When a function is not using the environment (e.g., `msg.sender`), it can be
     // declared as `envfree`
-    function assign3(uint8[5][5], uint8, uint8, uint8, uint8, uint8[5][5]) external returns (uint8[5][5] memory) envfree;
+    function assign3(uint8[50][50], uint8, uint8, uint8, uint8, uint8[50][50]) external returns (uint8[50][50] memory) envfree;
 }
 
 
@@ -21,22 +21,32 @@ methods
 rule aliasing1assignspec() {
 
 
-    uint8[5][5] dest_array;
-    uint8[5][5] ret;
+    uint8[50][50] dest_array;
+    uint8[50][50] ret;
     
-    uint8[5][5] source_array;
+    uint8[50][50] source_array;
     uint8 i;
     uint8 j;
     uint8 k;
+    uint8 l;
+    uint8 m;
+    uint8 n;
     uint8 value;
 
     ret = assign3(dest_array,i, j, k, value, source_array);
-    require i < 5;
-    require j < 5;
-    require k < 5;
-   
+    require i < 50;
+    require j < 50;
+    require k < 50;
+   require l < 50;
+   require m < 50;
+   require n < 50;
+    require l != i;
+    require n != k;
+
 /**@title return array contains the content of the source array
 * 
 */
     assert ret[i][k] == value;
+    assert ret[l][m] == dest_array[l][m];
+    assert ret[i][n] == source_array[j][n];
 }

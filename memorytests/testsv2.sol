@@ -105,11 +105,11 @@ function assign5(uint8[5][5][5][5] memory x5, uint8 i5, uint8 j5, uint8 k5, uint
 
 // assign51 is a test function which verifies the pointer to pointer array for 4D memory arrays in Certora.
 // assign51 accepts a 4D memory array of fixed size (x5), indeces (i5, j5, k5 and l5) and value (value5).
-// It returns memroty array, x3, after value to apointer assignment operation.
+// It returns memroty array, x, after value to apointer assignment operation.
 
-function assign51(uint8[10][10][10][10] memory x51, uint8 i51, uint8 j51, uint8 k51, uint8 l51, uint8 m51, uint8 value51, uint8[10][10][10][10] memory y51) 
+function assign51(uint8[5][5][5][5] memory x51, uint8 i51, uint8 j51, uint8 k51, uint8 l51, uint8 m51, uint8 value51, uint8[5][5][5][5] memory y51) 
     public 
-    returns (uint8[10][10][10][10] memory)  
+    returns (uint8[5][5][5][5] memory)  
     {
       x51[i51] = y51[j51];
       y51[j51][k51][l51][m51] = value51;
@@ -150,7 +150,7 @@ function assign51(uint8[10][10][10][10] memory x51, uint8 i51, uint8 j51, uint8 
     {
       x8[i8] = y8[j8];
       y8[j8][k8] = z8[l8][m8];
-      z8l8][m8][n8]= value8;
+      z8[l8][m8][n8]= value8;
       return x8;
     }
 //assign9 returns rhs. So can be usewd to check the aliasing of rhs.
@@ -171,27 +171,31 @@ function assign9(uint8[5][5][5] memory x9, uint8 i9, uint8 j9, uint8 k9, uint8 l
     public 
     returns (uint8[10][10][10] memory)  
     {
-      x6[i6] = y6[j6];
-      y6[j6][k6] = z6[l6][m6];
-      z6[l6][m6][n6]= value6;
-      return x6;
+      x91[i91] = y91[j91];
+      y91[j91][k91] = z91[l91][m91];
+      z91[l91][m91][n91]= value91;
+      return x91;
     }
 
- function assign4d(uint8[5][5][5][5] memory x4d, uint8 i4d, uint8 j4d, uint8 k4d, uint8 l4d, uint8 m4d, uint8 n4d, uint8 o, uint8 p,  uint8 q,  uint8 q, uint8 value4d, uint8[5][5][5][5] memory y4d, uint8[5][5][5][5] memory t1, uint8[5][5][5][5] memory t12) 
-    public 
-    returns (uint8[5][5][5][5] memory)  
-    {
-      x4d[i4d] = y4d[j4d];
-      y5[j4d][k4d] = t1[l4d][m4d];
-      t1[l4d][m4d][n4d]= t2[n][o][p];
-      t2[n][o][p][q] = value10;
-      return x4d;
-    }
+// assign4da is a test function to verify the 4 dimensional fixed-sized memory array for aliasing in Certora.
+// assign4da accepts four 4 dimensional fixed-sized arrays (x4a, y4a, t1, t2) and indices (i4a, j4a, k4a, m4a, n4a, o, p, q) and value.
+// It returns x4a to analyze the behavior of the the consecutive assignments of given arrays. 
+
+ //function assign4a(uint8[5][5][5][5] memory x4a, uint8 i4a, uint8 j4a, uint8 k4a, uint8 l4a, uint8 m4a, uint8 n4a, uint8 n, uint8 o, uint8 p,  uint8 q,  uint8 value10, uint8[5][5][5][5] memory y4a, uint8[5][5][5][5] memory t11, uint8[5][5][5][5] memory t12) 
+ //   public 
+ //   returns (uint8[5][5][5][5] memory)  
+ //   {
+ //     x4a[i4a] = y4a[j4a];
+ //     y4a[j4a][k4a] = t11[l4a][m4a];
+ //     t11[l4a][m4a][n4a]= t12[n][o][p];
+ //     t12[n][o][p][q] = value10;
+ //     return x4a;
+  //  }
  // assign7 is a function that accepts a dynamic memory array, performs an value-to-pointer assignment  operations and rerutrns 
  // the dynamic array. 
  // The function is design to test Certora verification of dynamic arrays
 
- function assign7(uint8[] memory x7, uint8 i7, uint8 y7) 
+ function assigndvtp(uint8[] memory x7, uint8 i7, uint8 y7) 
     public 
     returns (uint8[] memory)  
     {
@@ -202,7 +206,7 @@ function assign9(uint8[5][5][5] memory x9, uint8 i9, uint8 j9, uint8 k9, uint8 l
  // assign8 is same as assign7.
  // Only difference is the dimensions of the memory arrays. 
   
- function assign8(uint8[][] memory x8, uint8 i8, uint8 j8, uint8 k8, uint8 value8, uint8[][] memory y8) 
+ function assigndptp(uint8[][] memory x8, uint8 i8, uint8 j8, uint8 k8, uint8 value8, uint8[][] memory y8) 
     public 
     returns (uint8[][] memory)  
     {
@@ -211,7 +215,7 @@ function assign9(uint8[5][5][5] memory x9, uint8 i9, uint8 j9, uint8 k9, uint8 l
       return x8;
     }
 
-function assign61(uint8[][][] memory x61, uint8 i61, uint8 j61, uint8 k61, uint8 l61, uint8 m61, uint8 n61, uint8 value61, uint8[][][] memory y61, uint8[][][] memory z61) 
+function assigndptp3d(uint8[][][] memory x61, uint8 i61, uint8 j61, uint8 k61, uint8 l61, uint8 m61, uint8 n61, uint8 value61, uint8[][][] memory y61, uint8[][][] memory z61) 
     public 
     returns (uint8[][][] memory)  
     {
@@ -221,5 +225,15 @@ function assign61(uint8[][][] memory x61, uint8 i61, uint8 j61, uint8 k61, uint8
       return x61;
     }
 
+//function assigndptp4d(uint8[][][][] memory x4da, uint8 i4da, uint8 j4da, uint8 k4da, uint8 l4da, uint8 m4da, uint8 n, uint8 o, uint8 p,  uint8 q,  uint8 r,   uint8 s,   uint8 t,  uint8 u, uint8 value4da, uint8[][][][] memory y4da, uint8[][][][] memory t1, uint8[][][][] memory t2) 
+//    public 
+//    returns (uint8[][][][] memory)  
+//    {
+//      x4da[i4da] = y4da[j4da];
+//      y4da[j4da][k4da] = t1[l4da][m4da];
+//      t1[l4da][m4da][n]= t2[r][s][t];
+//      t2[r][s][t][u] = value4da;
+//      return x4da;
+//    }
  
    }

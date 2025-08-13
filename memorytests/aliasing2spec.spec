@@ -18,7 +18,7 @@ function assign4(uint8[5][5][5], uint8, uint8, uint8, uint8, uint8, uint8, uint8
 
 
 /// @title Assignment must change the data at specified index in destination array 
-rule aliasing1assignspec() {
+rule aliasing2assignspec() {
 
 
     uint8[5][5][5] dest_array;
@@ -32,6 +32,11 @@ rule aliasing1assignspec() {
     uint8 l;
     uint8 m;
     uint8 n;
+    uint8 n1;
+    uint8 n2;
+    uint8 i1;
+    uint8 k1;
+    uint8 k2;
 
     uint8 value;
 
@@ -42,9 +47,21 @@ rule aliasing1assignspec() {
     require l < 5;
     require m < 5;
     require n < 5;
+    require i1 < 5;
+    require i1 != i;
+    require k1 < 5;
+    require n1 < 5;
+    require k2 < 5;
+    require k2 != k;
+    require n2 < 5;
+    require n2 != n;
+
    
 /**@title return array contains the content of the source array
 * 
 */
    assert ret[i][k][n] == value;
+   assert ret [i1][k1][n1] == dest_array[i1][k1][n1];
+assert ret [i][k2][n1] == transient_array[j][k][n1];
+assert ret [i][k][n2] == source_array[l][m][n2];
 }
