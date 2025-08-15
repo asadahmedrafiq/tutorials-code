@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // Memory test for assignment behavior (/certora/tutorials-code/memorytests/test01.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.25;
 
 
 /**

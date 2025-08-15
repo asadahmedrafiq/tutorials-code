@@ -4,7 +4,7 @@
  * This is the example of aliasing assignment involving three-dimensional arrays. Please check rule `daliasing2assignspec`.
  * Run using:
  *
- *certoraRun /home/asad/certora/tutorials-code/memorytests/daliasing2.sol --verify daliasing2:/home/asad/certora/tutorials-code/memorytests/daliasing2spec.spec
+ *certoraRun /home/asad/certora/tutorials-code/memorytests/test19.sol --verify test19:/home/asad/certora/tutorials-code/memorytests/daliasing2spec.spec
  
  * There should be no errors.
  */
