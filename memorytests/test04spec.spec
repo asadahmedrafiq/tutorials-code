@@ -1,24 +1,30 @@
 /**
- * # p2p Example
- *
- * This is the example of pointer to pointer assignment with n=20. Please check rule `assign22spec`.
  * Run using:
  *
- * certoraRun /home/asad/certora/tutorials-code/memorytests/test04.sol --verify test04:/home/asad/certora/tutorials-code/memorytests/assign22spec.spec
+ * certoraRun /home/asad/certora/tutorials-code/memorytests/test04.sol --verify test04:/home/asad/certora/tutorials-code/memorytests/test04spec.spec
  *
  * There should be no errors.
  */
  
+ /**Test configurations: 
+ *  Test behavior: memory array to memory array assignment followed by value assignment to source memroy array
+ *  #Dimensions (D) : 1D
+ *   Size       (n) : n = 20
+ *   Single Aliasing: No 
+ *   Double Aliasing: No
+ *            Result: pass
+ */
+
 methods
 {
     // When a function is not using the environment (e.g., `msg.sender`), it can be
     // declared as `envfree`
-    function assign22(uint8[20], uint8, uint8, uint8, uint8[20]) external returns (uint8[20] memory) envfree;
+    function t04(uint8[20], uint8, uint8, uint8, uint8[20]) external returns (uint8[20] memory) envfree;
  
 }
 
 /// @title Assignment must change the data at specified index in destination array 
-rule assign22spec() {
+rule test04rule() {
 
 
     uint8[20] dest_array3;
@@ -29,7 +35,7 @@ rule assign22spec() {
     uint8 j3;
     uint8 value3;
 
-    ret3 = assign22(dest_array3, i3, j3, value3, source_array3);
+    ret3 = t04(dest_array3, i3, j3, value3, source_array3);
     require i3 < 20;
     require j3 < 20;
     require j3 != i3;

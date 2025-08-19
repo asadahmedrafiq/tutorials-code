@@ -1,23 +1,33 @@
 /**
  * 
  *
- * This is the example of pointer to pointer assignment for a 3D memory array with n=5. Please check rule `assign31spec`.
+ * This is the example of pointer to pointer assignment for a 3D memory array with n=5. Please check rule `test06rule`.
  * Run using:
  *
- * certoraRun /home/asad/certora/tutorials-code/memorytests/test06.sol --verify test06:/home/asad/certora/tutorials-code/memorytests/assign31spec.spec
+ * certoraRun /home/asad/certora/tutorials-code/memorytests/test06.sol --verify test06:/home/asad/certora/tutorials-code/memorytests/test06spec.spec
  *
  * There should be no errors.
  */
  
+ 
+ /**Test configurations: 
+ *  Test behavior: Value to 3D memory array assignment 
+ *  #Dimensions (D) : 3D
+ *   Size       (n) : n = 5
+ *   Single Aliasing: No
+ *   Double Aliasing: No
+ *            Result: Pass
+ */
+
 methods
 {
     // When a function is not using the environment (e.g., `msg.sender`), it can be
     // declared as `envfree`
-    function assign31(uint8[5][5][5], uint8, uint8, uint8, uint8, uint8, uint8[5][5][5]) external returns (uint8[5][5][5] memory) envfree; 
+    function t06(uint8[5][5][5], uint8, uint8, uint8, uint8, uint8, uint8[5][5][5]) external returns (uint8[5][5][5] memory) envfree; 
 }
 
 /// @title Assignment must change the data at specified index in destination array 
-rule assign31spec() {
+rule test06rule() {
 
 
     uint8[5][5][5] dest_array31;
@@ -36,7 +46,7 @@ rule assign31spec() {
 
     uint8 value31;
 
-    ret31 = assign31(dest_array31, i31, j31, k31, l31, value31, source_array31);
+    ret31 = t06(dest_array31, i31, j31, k31, l31, value31, source_array31);
     
     require i31 < 5;
     require j31 < 5;    

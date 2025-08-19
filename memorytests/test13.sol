@@ -2,7 +2,7 @@
     // SPDX-License-Identifier: MIT
 // Memory test for assignment behavior (/certora/tutorials-code/memorytests/test13.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.25;
 
 
 /**
@@ -16,7 +16,7 @@ contract test13 {
  // the dynamic array. 
  // The function is design to test Certora verification of dynamic arrays
 
- function assigndyvp(uint8[] memory x7, uint8 i7, uint8 y7) 
+ function t13(uint8[] memory x7, uint8 i7, uint8 y7) 
     public 
     returns (uint8[] memory)  
     {

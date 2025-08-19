@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
-// Memory test for assignment behavior (/certora/tutorials-code/memorytests/test02.sol)
+// Memory test for assignment behavior (/certora/tutorials-code/memorytests/test04.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.25;
 
 
 /**
@@ -16,7 +16,7 @@ contract test04 {
 // Only difference is size of the fixed-sized array.
 // assign22 is designed to assess the affect of size of the array in relation to verification effort in Certora
 
-    function assign22(uint8[20]memory x22, uint8 i22, uint8 j22, uint8 value22, uint8[20] memory y22) 
+    function t04(uint8[20]memory x22, uint8 i22, uint8 j22, uint8 value22, uint8[20] memory y22) 
     public 
     returns (uint8[20] memory)  
     {

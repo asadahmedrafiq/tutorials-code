@@ -1,27 +1,37 @@
 /**
  * 
  *
- * This is the example of value to pointer assignment for a 4D memory array with n=5. Please check rule `assign4dvpspec`.
+ * This is the example of value to pointer assignment for a 4D memory array with n=10 (test07.sol). Please check rule `test19rule`.
  * Run using:
  *
- * certoraRun /home/asad/certora/tutorials-code/memorytests/test07.sol --verify test07:/home/asad/certora/tutorials-code/memorytests/assign4dvpspec.spec
+ * certoraRun /home/asad/certora/tutorials-code/memorytests/test19.sol --verify test19:/home/asad/certora/tutorials-code/memorytests/test19spec.spec
  *
  * There should be no errors.
  */
  
+ 
+ /**Test configurations: 
+ *  Test behavior: Value to 4D memory array assignment 
+ *  #Dimensions (D) : 4D
+ *   Size       (n) : n = 10
+ *   Single Aliasing: No
+ *   Double Aliasing: No
+ *            Result: Problem
+ */
+
 methods
 {
     // When a function is not using the environment (e.g., `msg.sender`), it can be
     // declared as `envfree`
-    function assign4dvp(uint8[5][5][5][5], uint8, uint8, uint8, uint8, uint8) external returns (uint8[5][5][5][5] memory) envfree; 
+    function t19(uint8[10][10][10][10], uint8, uint8, uint8, uint8, uint8) external returns (uint8[10][10][10][10] memory) envfree; 
 }
 
 /// @title Assignment must change the data at specified index in destination array 
-rule assign4dvpspec() {
+rule test19rule() {
 
 
-    uint8[5][5][5][5] dest_array4;
-    uint8[5][5][5][5] ret4;
+    uint8[10][10][10][10] dest_array4;
+    uint8[10][10][10][10] ret4;
     
     uint8 i4;
     uint8 j4;
@@ -35,12 +45,12 @@ rule assign4dvpspec() {
 
     uint8 value4;
 
-    ret4 = assign4dvp(dest_array4, i4, j4, k4, l4, value4);
+    ret4 = t19(dest_array4, i4, j4, k4, l4, value4);
     
-    require i4 < 5;
-    require j4 < 5;    
-    require k4 < 5;
-    require l4 < 5;
+    require i4 < 10;
+    require j4 < 10;    
+    require k4 < 10;
+    require l4 < 10;
 
    // require i40 < 5;
    // require j40 < 5;    

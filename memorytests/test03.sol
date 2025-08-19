@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // Memory test for assignment behavior (/certora/tutorials-code/memorytests/test03.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.25;
 
 
 /**
@@ -13,7 +13,7 @@ contract test03 {
     }
 
 
-function assign21(uint8[5]memory x31, uint8 i31, uint8 j31, uint8 value31, uint8[5] memory y31) 
+function t03(uint8[5]memory x31, uint8 i31, uint8 j31, uint8 value31, uint8[5] memory y31) 
     public 
     returns (uint8[5] memory)  
     {

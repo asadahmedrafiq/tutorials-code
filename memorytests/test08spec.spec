@@ -1,23 +1,38 @@
 /**
  * 
  *
- * This is the example of value to pointer assignment for a 4D memory array with n=5. Please check rule `assign4dp2pspec`.
+ * This is the example of value to pointer assignment for a 4D memory array with n=5. Please check rule `test08rule`.
  * Run using:
  *
- * certoraRun /home/asad/certora/tutorials-code/memorytests/test08.sol --verify test08:/home/asad/certora/tutorials-code/memorytests/assign4dp2pspec.spec
+ * certoraRun /home/asad/certora/tutorials-code/memorytests/test08.sol --verify test08:/home/asad/certora/tutorials-code/memorytests/test08spec.spec 
  *
  * There should be no errors.
  */
  
+
+ /**Test configurations: 
+ *  Test behavior: 4D memory array single Aliasing followed by assignment 
+ *  #Dimensions (D) : 3D
+ *   Size       (n) : 5 > n >0
+ *   Single Aliasing: Yes
+ *   Double Aliasing: No
+ *            Result: Killed
+ *        path count: Low
+ *      nonlinearity: Low
+ * memory complexity: High
+ *   loop complexity: High
+ *
+ */
+
 methods
 {
     // When a function is not using the environment (e.g., `msg.sender`), it can be
     // declared as `envfree`
-    function assign4dp2p(uint8[5][5][5][5], uint8, uint8, uint8, uint8, uint8, uint8, uint8 [5][5][5][5]) external returns (uint8[5][5][5][5] memory) envfree; 
+    function t08(uint8[5][5][5][5], uint8, uint8, uint8, uint8, uint8, uint8, uint8 [5][5][5][5]) external returns (uint8[5][5][5][5] memory) envfree; 
  }
 
 /// @title Assignment must change the data at specified index in destination array 
-rule assign4dp2pspec() {
+rule test08rule() {
 
 
     uint8[5][5][5][5] dest_array5;
@@ -38,7 +53,7 @@ rule assign4dp2pspec() {
 
     uint8 value5;
 
-    ret5 = assign4dp2p(dest_array5, i5, j5, k5, l5, m5, value5, source_array5);
+    ret5 = t08(dest_array5, i5, j5, k5, l5, m5, value5, source_array5);
     
     require i5 < 5;
     require j5 < 5;    

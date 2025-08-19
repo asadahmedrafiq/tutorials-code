@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // Memory test for assignment behavior (/certora/tutorials-code/memorytests/test08.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.25;
 
 
 /**
@@ -16,7 +16,7 @@ contract test08 {
 // It returns memroty array, x51, after value to apointer assignment operation.
 
 
-function assign4dp2p(uint8[5][5][5][5] memory x51, uint8 i51, uint8 j51, uint8 k51, uint8 l51, uint8 m51, uint8 value51, uint8[5][5][5][5] memory y51) 
+function t08(uint8[5][5][5][5] memory x51, uint8 i51, uint8 j51, uint8 k51, uint8 l51, uint8 m51, uint8 value51, uint8[5][5][5][5] memory y51) 
     public 
     returns (uint8[5][5][5][5] memory)  
     {

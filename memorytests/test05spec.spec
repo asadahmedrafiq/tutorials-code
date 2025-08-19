@@ -1,23 +1,32 @@
 /**
  * 
  *
- * This is the example of value to pointer assignment for a 3D memory array with n=5. Please check rule `assign3spec`.
+ * This is the example of value to pointer assignment for a 3D memory array with n=5. Please check rule `test05rule`.
  * Run using:
  *
- * certoraRun /home/asad/certora/tutorials-code/memorytests/test05.sol --verify test05:/home/asad/certora/tutorials-code/memorytests/assign3spec.spec
+ * certoraRun /home/asad/certora/tutorials-code/memorytests/test05.sol --verify test05:/home/asad/certora/tutorials-code/memorytests/test05spec.spec
  *
  * There should be no errors.
  */
  
+ 
+ /**Test configurations: 
+ *  Test behavior: Value to 3D memory array assignment 
+ *  #Dimensions (D) : 3D
+ *   Size       (n) : n = 5
+ *   Single Aliasing: No 
+ *   Double Aliasing: No
+ *            Result: pass
+ */
 methods
 {
     // When a function is not using the environment (e.g., `msg.sender`), it can be
     // declared as `envfree`
-    function assign3(uint8[5][5][5], uint8, uint8, uint8, uint8) external returns (uint8[5][5][5] memory) envfree;
+    function t05(uint8[5][5][5], uint8, uint8, uint8, uint8) external returns (uint8[5][5][5] memory) envfree;
 }
 
 /// @title Assignment must change the data at specified index in destination array 
-rule assign3spec() {
+rule test05rule() {
 
 
     uint8[5][5][5] dest_array3;
@@ -31,7 +40,7 @@ rule assign3spec() {
     uint8 k31;
     uint8 value3;
 
-    ret3 = assign3(dest_array3, i3, j3, k3, value3);
+    ret3 = t05(dest_array3, i3, j3, k3, value3);
     
     require i3 < 5;
     require j3 < 5;    

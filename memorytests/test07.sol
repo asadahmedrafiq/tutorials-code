@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // Memory test for assignment behavior (/certora/tutorials-code/memorytests/test07.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.25;
 
 
 /**
@@ -16,7 +16,7 @@ contract test07 {
 // assign4dvp accepts a 4D memory array of fixed size (x5), indeces (i5, j5, k5 and l5) and value (value5).
 // It returns memroty array, x5, after value to apointer assignment operation.
 
-function assign4dvp(uint8[5][5][5][5] memory x5, uint8 i5, uint8 j5, uint8 k5, uint8 l5, uint8 value5) 
+function t07(uint8[5][5][5][5] memory x5, uint8 i5, uint8 j5, uint8 k5, uint8 l5, uint8 value5) 
     public 
     returns (uint8[5][5][5][5] memory)  
     {

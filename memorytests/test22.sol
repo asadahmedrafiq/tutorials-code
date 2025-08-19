@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Memory test for assignment behavior (/certora/tutorials-code/memorytests/test18.sol)
+// Memory test for assignment behavior (/certora/tutorials-code/memorytests/test22.sol)
 
 pragma solidity ^0.8.25;
 
@@ -7,7 +7,7 @@ pragma solidity ^0.8.25;
 /**
  * @dev Implementation of assignment behavior of memroty variables in Solidity
  */
-contract test18 {
+contract test22 {
    
     constructor() {
     }
@@ -17,12 +17,12 @@ contract test18 {
 // It returns memroty array, x3, after pointer to a pointer and value assignment operation, respectively.
 
 
- function t18(uint8[10][10][10] memory x4, uint8 i4, uint8 j4, uint8 k4, uint8 l4, uint8 value4, uint8[10][10][10] memory y4) 
+ function t22(uint8[10][10][10][10] memory x4, uint8 i4, uint8 j4, uint8 k4, uint8 l4, uint8 m4, uint8 value4, uint8[10][10][10][10] memory y4) 
     public 
-    returns (uint8[10][10][10] memory)  
+    returns (uint8[10][10][10][10] memory)  
     {
       x4[i4] = y4[j4];
-      y4[j4][k4][l4] = value4;
+      y4[j4][k4][l4][m4] = value4;
       return x4;
     }
 

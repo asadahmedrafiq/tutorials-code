@@ -1,30 +1,28 @@
 // SPDX-License-Identifier: MIT
-// Memory test for pointer-to-pointer copyingbehavior (/certora/tutorials-code/memorytests/test19.sol)
+// Memory test for assignment behavior (/certora/tutorials-code/memorytests/test19.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.25;
 
 
 /**
- * @dev Implementation of assignment behavior in multi-dimenstional memory arrays
- *
- * This contract accepts three static two-dimensional memory arrays and indeces to perform assignment operation.
- * Furhter one of the array data/content is loaded. This then serves us to obse3rve the behavior of the memory assignment of such arrays.
- * The function does assignment operation and returns one of the memory array for the purpose of validating the assignment behavior.
- *
+ * @dev Implementation of assignment behavior of memroty variables in Solidity
  */
 contract test19 {
    
     constructor() {
     }
 
- function assign4(uint8[][][] memory x, uint8 i, uint8 j, uint8 k, uint8 l, uint8 m, uint8 n, uint8 value, uint8[][][] memory y, uint8[][][] memory z) 
+// assign4dvp is a test function which verifies the assignment to pointer array for 4D memory arrays in Certora.
+// assign4dvp accepts a 4D memory array of fixed size (x5), indeces (i5, j5, k5 and l5) and value (value5).
+// It returns memroty array, x5, after value to apointer assignment operation.
+
+function t19(uint8[10][10][10][10] memory x5, uint8 i5, uint8 j5, uint8 k5, uint8 l5, uint8 value5) 
     public 
-    returns (uint8[][][] memory)  
+    returns (uint8[10][10][10][10] memory)  
     {
-      x[i] = y[j];
-      y[j][k] = z[l][m];
-      z[l][m][n]= value;
-      return x;
+      x5[i5][j5][k5][l5] = value5;
+      return x5;
     }
 
-   }
+
+}

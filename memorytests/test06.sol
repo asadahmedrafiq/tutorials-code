@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
-// Memory test for assignment behavior (/certora/tutorials-code/memorytests/test06sol)
+// Memory test for assignment behavior (/certora/tutorials-code/memorytests/test06.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.25;
 
 
 /**
@@ -17,7 +17,7 @@ contract test06 {
 // It returns memroty array, x3, after pointer to a pointer and value assignment operation, respectively.
 
 
- function assign31(uint8[5][5][5] memory x4, uint8 i4, uint8 j4, uint8 k4, uint8 l4, uint8 value4, uint8[5][5][5] memory y4) 
+ function t06(uint8[5][5][5] memory x4, uint8 i4, uint8 j4, uint8 k4, uint8 l4, uint8 value4, uint8[5][5][5] memory y4) 
     public 
     returns (uint8[5][5][5] memory)  
     {
