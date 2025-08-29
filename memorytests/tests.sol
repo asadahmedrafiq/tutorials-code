@@ -13,6 +13,7 @@ contract tests {
     }
 //[[[0,0],[1,1]],[[2,2],[3,3]]]
 //[[[4,4],[5,5]],[[6,6],[7,7]]]
+//[[[8,8],[9,9]],[[10,10],[11,11]]]
 //i=0
 //j=0
 //l=0
@@ -108,6 +109,18 @@ function t08(uint8[2][2][2][2] memory x51, uint8 i51, uint8 j51, uint8 k51, uint
     {
      x8[i8] = y8[j8];
       y8[j8][k8] = value8;
+      return x8;
+    }
+
+    
+ function t11(uint8[2][2][2] memory x8, uint8 i8, uint8 j8, uint8 k8, uint8 l8, uint8 m8, uint8 n8, uint8 value8, uint8[2][2][2] memory y8, uint8[2][2][2] memory z8) 
+    pure
+    public 
+    returns (uint8[2][2][2] memory)  
+    {
+      x8[i8] = y8[j8];
+      y8[j8][k8] = z8[l8][m8];
+      z8[l8][m8][n8]= value8;
       return x8;
     }
    }
