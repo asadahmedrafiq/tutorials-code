@@ -13,7 +13,7 @@
  /**Test configurations: 
  *  Test behavior: 2D memory array single Aliasing followed by assignment 
  *  #Dimensions (D) : 2D
- *   Size       (n) : n = 10
+ *   Size       (n) : n = 20
  *   Single Aliasing: Yes
  *   Double Aliasing: No
  *            Result: Time out
@@ -26,26 +26,26 @@ methods
 {
     // When a function is not using the environment (e.g., `msg.sender`), it can be
     // declared as `envfree`
-    function t10(uint8[10][10], uint8, uint8, uint8, uint8, uint8 [10][10]) external returns (uint8[10][10] memory) envfree;
+    function t10(uint8[20][20], uint8, uint8, uint8, uint8, uint8 [20][20]) external returns (uint8[20][20] memory) envfree;
   }
 
 /// @title Assignment must change the data at specified index in destination array 
 rule test10rule() {
 
 
-    uint8[10][10] dest_array3;
-    uint8[10][10] ret3;
+    uint8[20][20] dest_array3;
+    uint8[20][20] ret3;
     
-    uint8[10][10] source_array3;
+    uint8[20][20] source_array3;
     uint8 i3;
     uint8 j3;
     uint8 k3;
     uint8 value3;
 
     ret3 = t10(dest_array3, i3, j3, k3, value3, source_array3);
-    require i3 < 10;
-    require j3 < 10;
-    require k3 < 10;
+    require i3 < 20;
+    require j3 < 20;
+    require k3 < 20;
 
     require j3 != i3;
     

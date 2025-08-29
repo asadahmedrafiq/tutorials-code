@@ -17,6 +17,10 @@
  *   Single Aliasing: No
  *   Double Aliasing: No
  *            Result: Time out
+ *        path count: Low
+ *      nonlinearity: Low
+ * memory complexity: High
+ *   loop complexity: High
  */
 
 methods

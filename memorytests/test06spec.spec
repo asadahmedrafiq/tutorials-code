@@ -16,7 +16,14 @@
  *   Size       (n) : n = 5
  *   Single Aliasing: No
  *   Double Aliasing: No
- *            Result: Pass
+ *            Result: (Verified) Failed to locate an internal function called 
+  *           from test06-t06(uint8[5][5][5],uint8,uint8,uint8,uint8,uint8,uint8[5][5][5]): 
+  *           Could not detect the internal function 
+  *           test06.t06(uint8[5][5][5] x4, uint8 i4, uint8 j4, uint8 k4, uint8 l4, uint8 value4, uint8[5][5][5] y4) returns (uint8[5][5][5])
+ *        path count: Low
+ *      nonlinearity: Low
+ * memory complexity: High
+ *   loop complexity: High
  */
 
 methods

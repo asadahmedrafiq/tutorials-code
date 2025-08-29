@@ -1,9 +1,9 @@
 
 /**
- * This is the example of value to pointer assignment. Please check rule `test16rule`.
+ * This is the example of value to pointer assignment. Please check rule `test29rule`.
  * Run using:
  *
- * certoraRun /home/asad/certora/tutorials-code/memorytests/test16.sol --verify test16:/home/asad/certora/tutorials-code/memorytests/test16spec.spec
+ * certoraRun /home/asad/certora/tutorials-code/memorytests/test29.sol --verify test29:/home/asad/certora/tutorials-code/memorytests/test29spec.spec
  *
  * There should be no errors.
  */
@@ -12,29 +12,29 @@
  /**Test configurations: 
  *  Test behavior: Double aliasing with 2D static memory array  
  *  #Dimensions (D) : 2D
- *   Size       (n) : n = 5
+ *   Size       (n) : n = 20
  *   Single Aliasing: No
  *   Double Aliasing: Yes
- * Dynamic (n bound): NA
- *            Result: pass
+ * Dynamic (n bound): 
+ *            Result: Time out
  */
 
 methods
 {
     // When a function is not using the environment (e.g., `msg.sender`), it can be
     // declared as `envfree`
-  function t16(uint8[5][5], uint8, uint8, uint8,  uint8, uint8, uint8[5][5], uint8[5][5]) external returns (uint8 [5][5] memory) envfree; 
+  function t29(uint8[20][20], uint8, uint8, uint8,  uint8, uint8, uint8[20][20], uint8[20][20]) external returns (uint8 [20][20] memory) envfree; 
   }
 
 /// @title Assignment must change the data at specified index in destination array 
-rule test16rule() {
+rule test29rule() {
 
 
-    uint8[5][5] dest_array3;
-    uint8[5][5] ret3;
+    uint8[20][20] dest_array3;
+    uint8[20][20] ret3;
     
-    uint8[5][5] source_array3;
-    uint8[5][5] transient_array;
+    uint8[20][20] source_array3;
+    uint8[20][20] transient_array;
     uint8 i3;
     uint8 j3;
     uint8 k3;
@@ -42,12 +42,12 @@ rule test16rule() {
     uint8 m;
     uint8 value3;
 
-    require i3 < 5;
-    require j3 < 5;
-    require k3 < 5;
-    require l3 < 5;
+    require i3 < 20;
+    require j3 < 20;
+    require k3 < 20;
+    require l3 < 20;
 
-    ret3 = t16(dest_array3, i3, j3, k3, l3, value3, source_array3, transient_array);
+    ret3 = t29(dest_array3, i3, j3, k3, l3, value3, source_array3, transient_array);
 
     //require j3 != i3;
     
