@@ -17,12 +17,12 @@ contract test01 {
 // assign1 accepts a memory array of fixed size, an index and a value.
 // It returns memroy array after value-to-pointer assignment operation.
 
- function t01(uint8[5] memory x1, uint8 i1, uint8 y1) 
+ function t01(uint8[5] memory x, uint8 i, uint8 y) 
     public 
     returns (uint8[5] memory)  
     {
-      x1[i1] = y1;
-      return x1;
+      x1[i] = y;
+      return x;
     }
 
 }

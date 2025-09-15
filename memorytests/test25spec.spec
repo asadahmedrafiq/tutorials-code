@@ -40,10 +40,10 @@ rule t25() {
     uint8 j3;
     uint8 value3;
     
-    require dest_array3.length > 0;
-    require dest_array3.length < 5;
+   require dest_array3.length > 0;
+    //require dest_array3.length < 5;
     require i3 < dest_array3.length;
-    require j3 < dest_array3.length;
+    require j3 < dest_array3[i3].length;
 
     ret3 = t25(dest_array3, i3, j3, value3);
    
