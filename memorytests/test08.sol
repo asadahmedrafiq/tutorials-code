@@ -16,13 +16,14 @@ contract test08 {
 // It returns memroty array, x51, after value to apointer assignment operation.
 
 
-function t08(uint8[5][5][5][5] memory x51, uint8 i51, uint8 j51, uint8 k51, uint8 l51, uint8 m51, uint8 value51, uint8[5][5][5][5] memory y51) 
+function t08(uint8[5][5][5][5] memory x, uint8 i, uint8 j, uint8 k, uint8 l, uint8 m, uint8 value, uint8[5][5][5][5] memory y ) 
+    pure
     public 
     returns (uint8[5][5][5][5] memory)  
     {
-      x51[i51] = y51[j51];
-      y51[j51][k51][l51][m51] = value51;
-      return x51;
+      x [i] = y [j];
+      y [j][k][l][m] = value;
+      return x;
     }
 
 }

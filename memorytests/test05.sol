@@ -17,12 +17,12 @@ contract test05 {
 // It returns memroty array, x3, after value assignment to a pointer operation.
 
 
-function t05(uint8[5][5][5] memory x3, uint8 i3, uint8 j3, uint8 k3, uint8 y3) 
+function t05(uint8[5][5][5] memory x, uint8 i, uint8 j, uint8 k, uint8 y ) 
     public 
     returns (uint8[5][5][5] memory)  
     {
-      x3[i3][j3][k3] = y3;
-      return x3;
+      x [i][j][k] = y;
+      return x;
     }
 
 }

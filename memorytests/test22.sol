@@ -17,13 +17,14 @@ contract test22 {
 // It returns memroty array, x3, after pointer to a pointer and value assignment operation, respectively.
 
 
- function t22(uint8[10][10][10][10] memory x4, uint8 i4, uint8 j4, uint8 k4, uint8 l4, uint8 m4, uint8 value4, uint8[10][10][10][10] memory y4) 
+ function t22(uint8[10][10][10][10] memory x, uint8 i, uint8 j, uint8 k, uint8 l, uint8 m, uint8 value, uint8[10][10][10][10] memory y) 
+    pure
     public 
     returns (uint8[10][10][10][10] memory)  
     {
-      x4[i4] = y4[j4];
-      y4[j4][k4][l4][m4] = value4;
-      return x4;
+      x [i] = y [j];
+      y [j][k][l][m] = value;
+      return x;
     }
 
 }

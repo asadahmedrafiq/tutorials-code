@@ -13,13 +13,14 @@ contract test28 {
     }
 
 
-function t28(uint8[20]memory x31, uint8 i31, uint8 j31, uint8 k31, uint8 value31, uint8[20] memory y31, uint8[20] memory z31) 
+function t28(uint8[20]memory x, uint8 i, uint8 j, uint8 k, uint8 value, uint8[20] memory y, uint8[20] memory z) 
+    pure
     public 
     returns (uint8[20] memory)  
     {
-      x31[i31] = z31[j31];
-      z31[j31]= y31[k31];
-      y31[k31] = value31;
-      return x31;
+      x [i] = z [j];
+      z [j]= y [k];
+      y [k] = value;
+      return x;
     }
 }

@@ -13,12 +13,13 @@ contract test15 {
     constructor() {
     }
 
- function t15(uint8[50][50] memory x6, uint8 i6, uint8 j6, uint8 k6, uint8 value6, uint8[50][50] memory y6) 
+ function t15(uint8[50][50] memory x, uint8 i, uint8 j, uint8 k, uint8 value, uint8[50][50] memory y) 
+    pure
     public 
     returns (uint8[50][50] memory)  
     {
-      x6[i6] = y6[j6];
-      y6[j6][k6] = value6;
-      return x6;
+      x [i] = y [j];
+      y [j][k] = value;
+      return x;
     }
 }

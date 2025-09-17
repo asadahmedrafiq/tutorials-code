@@ -13,12 +13,13 @@ contract test26 {
     }
 
 
-function t26(uint8[]memory x31, uint8 i31, uint8 j31, uint8 value31, uint8[] memory y31) 
+function t26(uint8[] memory x, uint8 i, uint8 j, uint8 value, uint8[] memory y) 
+    pure
     public 
     returns (uint8[] memory)  
     {
-      x31[i31] = y31[j31];
-      y31[j31]= value31;
-      return x31;
+      x [i] = y [j];
+      y [j] = value;
+      return x;
     }
 }

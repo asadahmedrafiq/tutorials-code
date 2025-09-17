@@ -14,13 +14,14 @@ contract test23 {
 // assign3dda is an implemntation of aliasing using three-dimensional fixed sized arrays.
 // assign3dda accepts three arrays which are three dimensional arrays, respective indices and a value.
 // The function performs a pointer-to-pointer operation on the given martrices and then assign value to the one of the arrays.
- function t23(uint8[5][5][5][5] memory x8, uint8 i8, uint8 j8, uint8 k8, uint8 l8, uint8 m8, uint8 n8, uint8 o8, uint8 value8, uint8[5][5][5][5] memory y8, uint8[5][5][5][5] memory z8) 
+ function t23(uint8[5][5][5][5] memory x, uint8 i, uint8 j, uint8 k, uint8 l, uint8 m, uint8 n, uint8 o, uint8 value, uint8[5][5][5][5] memory y, uint8[5][5][5][5] memory z) 
+    pure
     public 
     returns (uint8[5][5][5][5] memory)  
     {
-      x8[i8] = z8[j8];
-      z8[j8][k8] = y8[l8][m8];
-      y8[l8][m8][n8][o8]= value8;
-      return x8;
+      x [i] = z [j];
+      z [j][k] = y [l][m];
+      y [l][m][n][o]= value;
+      return x;
     }
 }

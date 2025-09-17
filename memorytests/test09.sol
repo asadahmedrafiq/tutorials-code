@@ -15,13 +15,14 @@ contract test09 {
 // assign6 accepts two dimensional fixed sized arrays , their respective indices and value.
 // The test invovlves the pointer-to-pointe assignment followed by the value-to-pointer assignemnt.
 
-  function t09(uint8[5][5] memory x6, uint8 i6, uint8 j6, uint8 k6, uint8 value6, uint8[5][5] memory y6) 
+  function t09(uint8[5][5] memory x, uint8 i, uint8 j, uint8 k, uint8 value, uint8[5][5] memory y ) 
+    pure
     public 
     returns (uint8[5][5] memory)  
     {
-      x6[i6] = y6[j6];
-      y6[j6][k6] = value6;
-      return x6;
+      x [i] = y [j];
+      y [j][k] = value;
+      return x;
     }
 
 }

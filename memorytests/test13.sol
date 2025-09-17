@@ -16,11 +16,12 @@ contract test13 {
  // the dynamic array. 
  // The function is design to test Certora verification of dynamic arrays
 
- function t13(uint8[] memory x7, uint8 i7, uint8 y7) 
+ function t13(uint8[] memory x, uint8 i, uint8 y) 
+    pure
     public 
     returns (uint8[] memory)  
     {
-      x7[i7] = y7;
-      return x7;
+      x [i] = y;
+      return x;
     }
 }

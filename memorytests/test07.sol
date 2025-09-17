@@ -16,12 +16,13 @@ contract test07 {
 // assign4dvp accepts a 4D memory array of fixed size (x5), indeces (i5, j5, k5 and l5) and value (value5).
 // It returns memroty array, x5, after value to apointer assignment operation.
 
-function t07(uint8[5][5][5][5] memory x5, uint8 i5, uint8 j5, uint8 k5, uint8 l5, uint8 value5) 
+function t07(uint8[5][5][5][5] memory x, uint8 i, uint8 j, uint8 k, uint8 l, uint8 value ) 
+    pure
     public 
     returns (uint8[5][5][5][5] memory)  
     {
-      x5[i5][j5][k5][l5] = value5;
-      return x5;
+      x [i][j][k][l] = value;
+      return x;
     }
 
 

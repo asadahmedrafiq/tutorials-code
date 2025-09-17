@@ -14,14 +14,15 @@ contract test04 {
 
 // assign22 is same as assign2  in functionality.
 // Only difference is size of the fixed-sized array.
-// assign22 is designed to assess the affect of size of the array in relation to verification effort in Certora
+// assign  is designed to assess the affect of size of the array in relation to verification effort in Certora
 
-    function t04(uint8[20]memory x22, uint8 i22, uint8 j22, uint8 value22, uint8[20] memory y22) 
+    function t04(uint8[20]memory x, uint8 i, uint8 j, uint8 value, uint8[20] memory y ) 
+    pure
     public 
     returns (uint8[20] memory)  
     {
-      x22[i22] = y22[j22];
-      y22[j22]= value22;
-      return x22;
+      x [i] = y [j];
+      y [j]= value;
+      return x;
     }
 }

@@ -16,11 +16,12 @@ contract test02 {
 // Only difference is size of the fixed-sized array.
 // assign2 is designed to assess the affect of size of the array in relation to verification effort in Certora
 
-    function t02(uint8[20] memory x2, uint8 i2, uint8 y2) 
+    function t02(uint8[20] memory x, uint8 i, uint8 y) 
+    pure
     public 
     returns (uint8[20] memory)  
     {
-      x2[i2] = y2;
-      return x2;
+      x[i] = y;
+      return x;
     }
 }

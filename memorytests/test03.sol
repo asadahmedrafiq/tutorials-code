@@ -9,16 +9,16 @@ pragma solidity ^0.8.25;
  */
 contract test03 {
    
-    constructor() {
+  constructor() {
     }
 
 
-function t03(uint8[5]memory x31, uint8 i31, uint8 j31, uint8 value31, uint8[5] memory y31) 
+  function t03 ( uint8[5] memory x, uint8 i, uint8 j, uint8 value, uint8[5] memory y ) 
+    pure
     public 
-    returns (uint8[5] memory)  
-    {
-      x31[i31] = y31[j31];
-      y31[j31]= value31;
-      return x31;
+    returns (uint8[5] memory) {
+      x [i] = y [j];
+      y [j]= value ;
+      return x ;
     }
 }

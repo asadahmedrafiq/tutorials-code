@@ -16,13 +16,14 @@ contract test14 {
  // the dynamic array. 
  // The function is design to test Certora verification of dynamic arrays
 
- function t14(uint8[][] memory x8, uint8 i8, uint8 j8, uint8 k8, uint8 value8, uint8[][] memory y8) 
+ function t14(uint8[][] memory x, uint8 i, uint8 j, uint8 k, uint8 value, uint8[][] memory y ) 
+    pure
     public 
     returns (uint8[][] memory)  
     {
-     x8[i8] = y8[j8];
-      y8[j8][k8] = value8;
-      return x8;
+     x [i] = y [j];
+      y [j][k] = value;
+      return x;
     }
 
 }
