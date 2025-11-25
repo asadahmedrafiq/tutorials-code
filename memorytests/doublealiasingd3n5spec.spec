@@ -1,0 +1,60 @@
+
+/**
+ * This is specification file for double aliasing for doublealiasingd3n5.sol (doublealiasingd3n5spec.spec). 
+ *
+ * certoraRun /home/asad/certora/tutorials-code/memorytests/doublealiasingd3n5.sol --verify doublealiasingd3n5:/home/asad/certora/tutorials-code/memorytests/doublealiasingd3n5spec.spec
+ *
+ * There should be no errors.
+ */
+ 
+ 
+ /**Test results:
+ *        path count: Low
+ *      nonlinearity: Low
+ * memory complexity: High
+ *   loop complexity: High
+ *            Result: Time out
+
+ */
+
+methods
+{
+    // Declare function as a method
+    function doublealiasingd3n5f(uint8[5][5][5], uint8, uint8, uint8, uint8, uint8, uint8, uint8, uint8[5][5][5], uint8[5][5][5]) 
+             external 
+             returns (uint8[5][5][5] memory) 
+             envfree; 
+ 
+  }
+
+/// @title Assignment must change the data at specified index in destination array 
+rule doublealiasingd3n5rule() {
+
+
+    uint8[5][5][5] dest_array;
+    uint8[5][5][5] ret;
+    uint8[5][5][5] t_array;
+    uint8[5][5][5] source_array;
+
+    uint8 i;
+    uint8 j;
+    uint8 k;
+    uint8 l;
+    uint8 m;
+    uint8 n;
+    uint8 value;
+
+    ret = doublealiasingd3n5f(dest_array, i, j, k, l, m, n, value, source_array, t_array);
+    require i < 5;
+    require j < 5;
+    require k < 5;
+    require l < 5;
+    require m < 5;
+    require n < 5;
+
+/**@title return array contains the content of the destination array
+* 
+*/
+// Return/dest array contains values assigned to destination array at specified index
+    assert ret [i][k][n] == value;
+}
